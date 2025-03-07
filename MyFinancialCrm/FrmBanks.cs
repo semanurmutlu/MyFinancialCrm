@@ -17,7 +17,8 @@ namespace MyFinancialCrm
         {
             InitializeComponent();
         }
-        FinancialDbEntities1 db = new FinancialDbEntities1();
+
+        FinancialCrmDbEntities db = new FinancialCrmDbEntities();
         private void FrmBanks_Load(object sender, EventArgs e)
         {
             //BANKA BAKİYELERİ
@@ -50,11 +51,62 @@ namespace MyFinancialCrm
 
         }
 
-        private void btnBillForm_Click(object sender, EventArgs e)
+        
+
+        private void btnCategoryForm_Click(object sender, EventArgs e)
         {
-            FrmBilling frm=new FrmBilling();
+            FrmCategories frmCategori= new FrmCategories();
+            frmCategori.Show();
+            this.Hide();
+        }
+
+        private void btnBanksForm_Click(object sender, EventArgs e)
+        {
+            FrmBanks frm=new FrmBanks();
             frm.Show();
             this.Hide();
+        }
+
+        private void btnBillsForm_Click(object sender, EventArgs e)
+        {
+            FrmBilling frm= new FrmBilling();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnSpendingForm_Click(object sender, EventArgs e)
+        {
+            FrmSpending frm=new FrmSpending();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnBankProccesForm_Click(object sender, EventArgs e)
+        {
+            FrmBankProcess frm=new FrmBankProcess();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnDashboardForm_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm=new FrmDashboard();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnSettingsFrm_Click(object sender, EventArgs e)
+        {
+            FrmSettings frm=new FrmSettings();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FrmLogin frm=new FrmLogin();
+            frm.Show();
+            this.Close();
         }
     }
 }
