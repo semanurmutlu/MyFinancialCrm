@@ -18,7 +18,7 @@ namespace MyFinancialCrm
             InitializeComponent();
         }
 
-        FinancialDbEntities1 db = new FinancialDbEntities1();
+        FinancialCrmDbEntities db = new FinancialCrmDbEntities();
         int count = 0;
         private void FrmDashboard_Load(object sender, EventArgs e)
         {
@@ -39,10 +39,10 @@ namespace MyFinancialCrm
             var series = chart1.Series.Add("Series1");
             foreach (var item in bankData)
             {
-                series.Points.AddXY(item.BankTitle,item.BankBalance);
+                series.Points.AddXY(item.BankTitle, item.BankBalance);
             }
 
-            //*****************Chart 1 kodları
+            //*****************Chart 2 kodları
             var billData = db.Bills.Select(x => new
             {
                 x.BillTitle,
@@ -63,9 +63,9 @@ namespace MyFinancialCrm
             count++;
             if (count % 4 == 1)
             {
-                var elektrikFaturasi=db.Bills.Where(x=>x.BillTitle == "Elektrik Faturası").Select(y=>y.BillAmount).FirstOrDefault();
+                var elektrikFaturasi = db.Bills.Where(x => x.BillTitle == "Elektrik Faturası").Select(y => y.BillAmount).FirstOrDefault();
                 lblBillTitle.Text = "Elektrik Faturası";
-                lblBillAmount.Text=elektrikFaturasi.ToString() + "₺";
+                lblBillAmount.Text = elektrikFaturasi.ToString() + "₺";
             }
             if (count % 4 == 2)
             {
@@ -87,6 +87,61 @@ namespace MyFinancialCrm
             }
         }
 
-        
+        private void btnCategoryForm_Click(object sender, EventArgs e)
+        {
+            FrmCategories frm = new FrmCategories();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnBanksForm_Click(object sender, EventArgs e)
+        {
+            FrmBanks frm = new FrmBanks();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnBillsForm_Click(object sender, EventArgs e)
+        {
+            FrmBilling frm = new FrmBilling();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnSpendingForm_Click(object sender, EventArgs e)
+        {
+            FrmSpending frm = new FrmSpending();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnBankProccesForm_Click(object sender, EventArgs e)
+        {
+            FrmBankProcess frm = new FrmBankProcess();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnDashboardForm_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm = new FrmDashboard();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnSettingsFrm_Click(object sender, EventArgs e)
+        {
+            FrmSettings frm = new FrmSettings();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FrmLogin frm = new FrmLogin();
+            frm.Show();
+            this.Close();
+        }
+
     }
 }
